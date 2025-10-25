@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Quiz - Version Complète</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .quiz-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-answer {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-answer:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-answer.correct {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-answer.incorrect {
+            background: #f44336;
+            color: white;
+        }
+
+        .progress {
+            text-align: center;
+            color: #666;
+            margin: 20px 0;
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 48px;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-box">
+            <!-- PAGE D'ACCUEIL -->
+            <div id="home">
+                <h1>🎯 SUPER QUIZ</h1>
+                <p style="text-align: center; color: #666; margin: 20px 0;">
+                    Testez vos connaissances avec 5 questions !
+                </p>
+                <input type="text" id="playerName" placeholder="Entrez votre nom...">
+                <button onclick="startQuiz()">COMMENCER LE QUIZ</button>
+            </div>
+
+            <!-- QUIZ -->
+            <div id="quiz" class="hidden">
+                <div 
